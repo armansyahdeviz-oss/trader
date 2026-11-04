@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Dashboard</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: white;
+  padding: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+.card {
+  background: #1c293b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.price {
+  font-size: 32px;
+  color: #00e69a;
+}
+button {
+  border: none;
+  padding: 14px 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+}
+.buy { background: #00a878; }
+.sell { background: #e84152; }
+input {
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  width: 90%;
+  margin: 10px 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>TRADING DASHBOARD</h1>
+
+  <div class="card">
+    <h3>Saldo Akun</h3>
+    <h2 id="balance"> $10,000.00</h2>
+  </div>
+
+  <div class="card">
+    <h3>BTC / USD</h3>
+    <div class="price" id="price">$67,000.00</div>
+    <p id="change">Harga simulasi</p>
+  </div>
+
+  <div class="card">
+    <h3>Transaksi</h3>
+    <label>Jumlah BTC</label><br>
+    <input type="number" id="amount"
+      placeholder="Masukkan jumlah BTC"
+      min="0.0001" step="0.0001">
+
+    <br>
+    <button class="buy" onclick="trade('BUY')">
+      BUY
+    </button>
+
+    <button class="sell" onclick="trade('SELL')">
+      SELL
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Riwayat Transaksi</h3>
+    <ul id="history"></ul>
+  </div>
+</div>
+
+<script>
+let balance = 10000;
+let price = 67000;
+let btc = 0;
+
+function update() {
+  document.getElementById("balance").innerText =
+    "$" + balance.toFixed(2);
+
+  document.getElementById("price").innerText =
+    "$" + price.toFixed(2);
+}
+
+function trade(type) {
+  let amount = Number(
+    document.getElementById("amount").value
+  );
+
+  if (!Number.isFinite(amount) || amount <= 0) {
+    alert("Masukkan jumlah BTC yang valid!");
+    return;
+  }
+
+  let total = amount * price;
+
+  if (type === "BUY") {
+    if (balance < total) {
+      alert("Saldo tidak cukup!");
+      return;
+    }
+
+    balance -= total;
+    btc += amount;
+
+  } else {
+    if (btc < amount) {
+      alert("BTC tidak cukup!");
+      return;
+    }
+
+    balance += total;
+    btc -= amount;
+  }
+
+  let li = document.createElement("li");
+  li.innerText =
+    type + " " + amount + " BTC pada $" +
+    price.toFixed(2);
+
+  document.getElementById("history")
+    .prepend(li);
+
+  update();
+}
+
+// Simulasi perubahan harga
+setInterval(() => {
+  price += (Math.random() - 0.5) * 200;
+  update();
+}, 2000);
+
+update();
+</script>
+</body>
+</html>
