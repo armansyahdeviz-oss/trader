@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Bitcoin</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #101827;
+            color: white;
+        }
+
+        header {
+            background: #f7931a;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 35px;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+        }
+
+        section {
+            padding: 30px;
+            margin: 20px;
+            background: #1e293b;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #f7931a;
+        }
+
+        .bitcoin {
+            text-align: center;
+            font-size: 80px;
+            color: #f7931a;
+        }
+
+        button {
+            background: #f7931a;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f7931a;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>₿ BELAJAR BITCOIN</h1>
+    <p>Mengenal Mata Uang Digital Masa Kini</p>
+</header>
+
+<nav>
+    <a href="#pengertian">Pengertian</a>
+    <a href="#sejarah">Sejarah</a>
+    <a href="#cara">Cara Kerja</a>
+    <a href="#kelebihan">Kelebihan</a>
+</nav>
+
+<div class="bitcoin">₿</div>
+
+<section id="pengertian">
+    <h2>1. Pengertian Bitcoin</h2>
+    <p>
+        Bitcoin adalah mata uang digital atau cryptocurrency
+        yang dapat digunakan untuk melakukan transaksi secara
+        online tanpa melalui bank sebagai perantara.
+        Bitcoin menggunakan teknologi Blockchain.
+    </p>
+</section>
+
+<section id="sejarah">
+    <h2>2. Sejarah Bitcoin</h2>
+    <p>
+        Bitcoin diperkenalkan pada tahun 2008 melalui sebuah
+        dokumen berjudul Bitcoin: A Peer-to-Peer Electronic
+        Cash System oleh seseorang atau kelompok dengan nama
+        samaran Satoshi Nakamoto.
+    </p>
+    <p>
+        Pada tahun 2009, jaringan Bitcoin mulai beroperasi.
+    </p>
+</section>
+
+<section id="cara">
+    <h2>3. Cara Kerja Bitcoin</h2>
+    <p>
+        Bitcoin menggunakan teknologi Blockchain, yaitu
+        sistem pencatatan transaksi digital yang tersimpan
+        dalam jaringan komputer.
+    </p>
+
+    <ul>
+        <li>Pengguna mengirim Bitcoin.</li>
+        <li>Transaksi disebarkan ke jaringan.</li>
+        <li>Penambang memvalidasi transaksi.</li>
+        <li>Transaksi dicatat dalam Blockchain.</li>
+    </ul>
+</section>
+
+<section id="kelebihan">
+    <h2>4. Kelebihan Bitcoin</h2>
+    <ul>
+        <li>Dapat digunakan untuk transaksi digital.</li>
+        <li>Tidak dikendalikan oleh satu bank sentral.</li>
+        <li>Memiliki jumlah maksimum 21 juta Bitcoin.</li>
+        <li>Transaksi dapat dilakukan secara global.</li>
+    </ul>
+
+    <h2>Kekurangan Bitcoin</h2>
+    <ul>
+        <li>Harga Bitcoin sangat fluktuatif.</li>
+        <li>Berisiko mengalami kerugian.</li>
+        <li>Transaksi tidak selalu dapat dibatalkan.</li>
+        <li>Memerlukan pemahaman keamanan digital.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>5. Kuis Bitcoin</h2>
+    <p>Apa teknologi yang digunakan Bitcoin?</p>
+
+    <button onclick="jawaban('A')">A. Bluetooth</button>
+    <button onclick="jawaban('B')">B. Blockchain</button>
+    <button onclick="jawaban('C')">C. WiFi</button>
+
+    <h3 id="hasil"></h3>
+</section>
+
+<footer>
+    <p>Website Edukasi Bitcoin | Belajar Teknologi Digital</p>
+</footer>
+
+<script>
+    function jawaban(pilihan) {
+        let hasil = document.getElementById("hasil");
+
+        if (pilihan === "B") {
+            hasil.innerHTML = "Benar! Bitcoin menggunakan Blockchain.";
+            hasil.style.color = "#22c55e";
+        } else {
+            hasil.innerHTML = "Maaf, jawaban kurang tepat. Coba lagi!";
+            hasil.style.color = "#ef4444";
+        }
+    }
+</script>
+
+</body>
+</html>
